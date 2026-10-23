@@ -1,0 +1,20 @@
+name: Repository checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate notebooks, outputs, and documentation
+        run: python scripts/validate_repository.py
+      - name: Verify saved report exports
+        run: |
+          python scripts/extract_reports.py
+          git diff --exit-code -- results/recorded

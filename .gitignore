@@ -1,0 +1,25 @@
+# Local environments and temporary notebook files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+# Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# External datasets and generated weights/caches
+/data/
+/outputs/
+/checkpoints/
+/models/
+/wandb/
+*.safetensors
+*.pt
+*.pth
+# Notebook outputs inside .ipynb are intentionally retained.

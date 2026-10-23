@@ -1,0 +1,62 @@
+SAVED NOTEBOOK REPORT
+Source: notebooks/evaluation/closed/evaluate_brainface_snapshot.ipynb
+Extracted from committed outputs; no new execution or metric calculation.
+Read docs/experiments.md before interpreting these historical results.
+
+--- Saved cell 15 ---
+
+FINAL REPORT: 30/30 MODELS COMPLETED — FULL TEST SETS
+Input: image + shared question prompt | Output: Yes/No | CoT labels: training variant
+Precision: 4-bit weights / FP16 compute | Max new tokens: 8
+Image size cap: None | Invalid prediction policy: wrong
+
+ALL DATASETS — ALL 30 MODELS — ALL METRICS
+  Dataset    Model Name     CoT  N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted)  Yes-class P/R/F1   No-class P/R/F1
+BrainFace    Lingshu-7B    With 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace    Lingshu-7B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B    With 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace Qwen2.5-VL-7B    With 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace Qwen2.5-VL-7B Without 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace   Qwen3-VL-8B    With 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace   Qwen3-VL-8B Without 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace     Llama-11B    With 12        0         83.33              88.89           80.00       81.25                 87.04              83.33          82.29   100.0/60.0/75.0   77.8/100.0/87.5
+BrainFace     Llama-11B Without 12        0         83.33              88.89           80.00       81.25                 87.04              83.33          82.29   100.0/60.0/75.0   77.8/100.0/87.5
+
+====================================================================================================
+FULL SUMMARY TABLE -- BrainFace -- fine-tuned models, With vs Without CoT
+====================================================================================================
+  Dataset    Model Name     CoT  N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted)  Yes-class P/R/F1   No-class P/R/F1
+BrainFace    Lingshu-7B    With 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace    Lingshu-7B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B    With 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace Qwen2.5-VL-7B    With 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace Qwen2.5-VL-7B Without 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace   Qwen3-VL-8B    With 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace   Qwen3-VL-8B Without 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace     Llama-11B    With 12        0         83.33              88.89           80.00       81.25                 87.04              83.33          82.29   100.0/60.0/75.0   77.8/100.0/87.5
+BrainFace     Llama-11B Without 12        0         83.33              88.89           80.00       81.25                 87.04              83.33          82.29   100.0/60.0/75.0   77.8/100.0/87.5
+
+====================================================================================================
+WITH vs WITHOUT CoT  (Diff = With - Without)
+====================================================================================================
+                        Accuracy (%)              F1 (macro)             
+CoT                             With Without Diff       With Without Diff
+Dataset   Model Name                                                     
+BrainFace Lingshu-7B          100.00  100.00  0.0     100.00  100.00  0.0
+          MedGemma-4B         100.00  100.00  0.0     100.00  100.00  0.0
+          Qwen2.5-VL-7B        91.67   91.67  0.0      91.11   91.11  0.0
+          Qwen3-VL-8B          83.33   83.33  0.0      82.86   82.86  0.0
+          Llama-11B            83.33   83.33  0.0      81.25   81.25  0.0
+
+Saved all tables and raw predictions in /kaggle/working/cot_eval_results
+
+Columns:
+  N / Invalid             -- questions scored / answers that were not Yes or No
+  Accuracy (%)            -- overall exact-match accuracy
+  Precision/Recall/F1 (macro)    -- unweighted average across Yes/No classes
+  Precision/Recall/F1 (weighted) -- weighted by class support
+  Yes-class / No-class P/R/F1    -- per-class precision/recall/F1
+
+Complete shareable report: /kaggle/working/cot_eval_results/FINAL_MODEL_SUMMARY.txt

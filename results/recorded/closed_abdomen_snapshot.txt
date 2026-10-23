@@ -1,0 +1,62 @@
+SAVED NOTEBOOK REPORT
+Source: notebooks/evaluation/closed/evaluate_abdomen_snapshot.ipynb
+Extracted from committed outputs; no new execution or metric calculation.
+Read docs/experiments.md before interpreting these historical results.
+
+--- Saved cell 15 ---
+
+FINAL REPORT: 30/30 MODELS COMPLETED — FULL TEST SETS
+Input: image + shared question prompt | Output: Yes/No | CoT labels: training variant
+Precision: 4-bit weights / FP16 compute | Max new tokens: 8
+Image size cap: None | Invalid prediction policy: wrong
+
+ALL DATASETS — ALL 30 MODELS — ALL METRICS
+Dataset    Model Name     CoT   N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted) Yes-class P/R/F1 No-class P/R/F1
+Abdomen    Lingshu-7B    With 108        0         82.41              83.02           81.83       82.06                 82.80              82.41          82.25   86.0/74.0/79.6  80.0/89.7/84.6
+Abdomen    Lingshu-7B Without 108        0         84.26              84.21           84.10       84.15                 84.25              84.26          84.25   83.7/82.0/82.8  84.7/86.2/85.5
+Abdomen   MedGemma-4B    With 108        0         79.63              82.03           80.62       79.52                 82.84              79.63          79.40   71.2/94.0/81.0  92.9/67.2/78.0
+Abdomen   MedGemma-4B Without 108        0         80.56              80.47           80.38       80.42                 80.54              80.56          80.54   79.6/78.0/78.8  81.4/82.8/82.1
+Abdomen Qwen2.5-VL-7B    With 108        0         67.59              78.38           65.14       62.14                 77.21              67.59          63.20   94.1/32.0/47.8  62.6/98.3/76.5
+Abdomen Qwen2.5-VL-7B Without 108        0         78.70              78.89           78.24       78.39                 78.81              78.70          78.58   80.0/72.0/75.8  77.8/84.5/81.0
+Abdomen   Qwen3-VL-8B    With 108        0         80.56              82.00           79.69       79.93                 81.61              80.56          80.20   87.2/68.0/76.4  76.8/91.4/83.5
+Abdomen   Qwen3-VL-8B Without 108        0         82.41              82.70           81.97       82.15                 82.57              82.41          82.31   84.4/76.0/80.0  81.0/87.9/84.3
+Abdomen     Llama-11B    With 108        0         74.07              75.18           74.76       74.04                 75.73              74.07          73.97   67.7/84.0/75.0  82.6/65.5/73.1
+Abdomen     Llama-11B Without 108        0         67.59              69.62           68.59       67.37                 70.25              67.59          67.16   61.2/82.0/70.1  78.0/55.2/64.6
+
+====================================================================================================
+FULL SUMMARY TABLE -- Abdomen -- fine-tuned models, With vs Without CoT
+====================================================================================================
+Dataset    Model Name     CoT   N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted) Yes-class P/R/F1 No-class P/R/F1
+Abdomen    Lingshu-7B    With 108        0         82.41              83.02           81.83       82.06                 82.80              82.41          82.25   86.0/74.0/79.6  80.0/89.7/84.6
+Abdomen    Lingshu-7B Without 108        0         84.26              84.21           84.10       84.15                 84.25              84.26          84.25   83.7/82.0/82.8  84.7/86.2/85.5
+Abdomen   MedGemma-4B    With 108        0         79.63              82.03           80.62       79.52                 82.84              79.63          79.40   71.2/94.0/81.0  92.9/67.2/78.0
+Abdomen   MedGemma-4B Without 108        0         80.56              80.47           80.38       80.42                 80.54              80.56          80.54   79.6/78.0/78.8  81.4/82.8/82.1
+Abdomen Qwen2.5-VL-7B    With 108        0         67.59              78.38           65.14       62.14                 77.21              67.59          63.20   94.1/32.0/47.8  62.6/98.3/76.5
+Abdomen Qwen2.5-VL-7B Without 108        0         78.70              78.89           78.24       78.39                 78.81              78.70          78.58   80.0/72.0/75.8  77.8/84.5/81.0
+Abdomen   Qwen3-VL-8B    With 108        0         80.56              82.00           79.69       79.93                 81.61              80.56          80.20   87.2/68.0/76.4  76.8/91.4/83.5
+Abdomen   Qwen3-VL-8B Without 108        0         82.41              82.70           81.97       82.15                 82.57              82.41          82.31   84.4/76.0/80.0  81.0/87.9/84.3
+Abdomen     Llama-11B    With 108        0         74.07              75.18           74.76       74.04                 75.73              74.07          73.97   67.7/84.0/75.0  82.6/65.5/73.1
+Abdomen     Llama-11B Without 108        0         67.59              69.62           68.59       67.37                 70.25              67.59          67.16   61.2/82.0/70.1  78.0/55.2/64.6
+
+====================================================================================================
+WITH vs WITHOUT CoT  (Diff = With - Without)
+====================================================================================================
+                      Accuracy (%)                F1 (macro)               
+CoT                           With Without   Diff       With Without   Diff
+Dataset Model Name                                                         
+Abdomen Lingshu-7B           82.41   84.26  -1.85      82.06   84.15  -2.09
+        MedGemma-4B          79.63   80.56  -0.93      79.52   80.42  -0.90
+        Qwen2.5-VL-7B        67.59   78.70 -11.11      62.14   78.39 -16.25
+        Qwen3-VL-8B          80.56   82.41  -1.85      79.93   82.15  -2.22
+        Llama-11B            74.07   67.59   6.48      74.04   67.37   6.67
+
+Saved all tables and raw predictions in /kaggle/working/cot_eval_results
+
+Columns:
+  N / Invalid             -- questions scored / answers that were not Yes or No
+  Accuracy (%)            -- overall exact-match accuracy
+  Precision/Recall/F1 (macro)    -- unweighted average across Yes/No classes
+  Precision/Recall/F1 (weighted) -- weighted by class support
+  Yes-class / No-class P/R/F1    -- per-class precision/recall/F1
+
+Complete shareable report: /kaggle/working/cot_eval_results/FINAL_MODEL_SUMMARY.txt

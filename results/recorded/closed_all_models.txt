@@ -1,0 +1,122 @@
+SAVED NOTEBOOK REPORT
+Source: notebooks/evaluation/closed/evaluate_all_models.ipynb
+Extracted from committed outputs; no new execution or metric calculation.
+Read docs/experiments.md before interpreting these historical results.
+
+--- Saved cell 15 ---
+
+FINAL REPORT: 30/30 MODELS COMPLETED — FULL TEST SETS
+Input: image + shared question prompt | Output: Yes/No | CoT labels: training variant
+Precision: 4-bit weights / FP16 compute | Max new tokens: 8
+Image size cap: None | Invalid prediction policy: wrong
+
+ALL DATASETS — ALL 30 MODELS — ALL METRICS
+  Dataset    Model Name     CoT   N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted)  Yes-class P/R/F1   No-class P/R/F1
+BrainFace    Lingshu-7B    With  12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace    Lingshu-7B Without  12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B    With  12        0         91.67              91.67           92.86       91.61                 93.06              91.67          91.72   83.3/100.0/90.9   100.0/85.7/92.3
+BrainFace   MedGemma-4B Without  12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace Qwen2.5-VL-7B    With  12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace Qwen2.5-VL-7B Without  12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace   Qwen3-VL-8B    With  12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace   Qwen3-VL-8B Without  12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace     Llama-11B    With  12        0         66.67              81.82           60.00       55.56                 78.79              66.67          59.26   100.0/20.0/33.3   63.6/100.0/77.8
+BrainFace     Llama-11B Without  12        0         66.67              81.82           60.00       55.56                 78.79              66.67          59.26   100.0/20.0/33.3   63.6/100.0/77.8
+     Neck    Lingshu-7B    With  16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87    62.5/71.4/66.7    75.0/66.7/70.6
+     Neck    Lingshu-7B Without  16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87    62.5/71.4/66.7    75.0/66.7/70.6
+     Neck   MedGemma-4B    With  16        0         75.00              81.82           77.78       74.60                 84.09              75.00          74.21   63.6/100.0/77.8   100.0/55.6/71.4
+     Neck   MedGemma-4B Without  16        0         81.25              85.00           83.33       81.18                 86.87              81.25          81.03   70.0/100.0/82.4   100.0/66.7/80.0
+     Neck Qwen2.5-VL-7B    With  16        0         50.00              47.27           47.62       46.67                 48.18              50.00          48.33    40.0/28.6/33.3    54.5/66.7/60.0
+     Neck Qwen2.5-VL-7B Without  16        0         50.00              47.27           47.62       46.67                 48.18              50.00          48.33    40.0/28.6/33.3    54.5/66.7/60.0
+     Neck   Qwen3-VL-8B    With  16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87    62.5/71.4/66.7    75.0/66.7/70.6
+     Neck   Qwen3-VL-8B Without  16        0         75.00              74.60           74.60       74.60                 75.00              75.00          75.00    71.4/71.4/71.4    77.8/77.8/77.8
+     Neck     Llama-11B    With  16        0         56.25              54.17           53.17       51.52                 54.69              56.25          53.41    50.0/28.6/36.4    58.3/77.8/66.7
+     Neck     Llama-11B Without  16        0         50.00              26.67           44.44       33.33                 30.00              50.00          37.50       0.0/0.0/0.0    53.3/88.9/66.7
+  Abdomen    Lingshu-7B    With 108        0         80.56              80.59           80.24       80.35                 80.57              80.56          80.50    80.9/76.0/78.4    80.3/84.5/82.4
+  Abdomen    Lingshu-7B Without 108        0         80.56              80.50           80.66       80.51                 80.73              80.56          80.58    77.4/82.0/79.6    83.6/79.3/81.4
+  Abdomen   MedGemma-4B    With 108        0         79.63              82.03           80.62       79.52                 82.84              79.63          79.40    71.2/94.0/81.0    92.9/67.2/78.0
+  Abdomen   MedGemma-4B Without 108        0         80.56              80.47           80.38       80.42                 80.54              80.56          80.54    79.6/78.0/78.8    81.4/82.8/82.1
+  Abdomen Qwen2.5-VL-7B    With 108        0         69.44              79.39           67.14       64.86                 78.25              69.44          65.80    94.7/36.0/52.2    64.0/98.3/77.6
+  Abdomen Qwen2.5-VL-7B Without 108        0         77.78              77.84           77.38       77.50                 77.81              77.78          77.69    78.3/72.0/75.0    77.4/82.8/80.0
+  Abdomen   Qwen3-VL-8B    With 108        0         80.56              82.00           79.69       79.93                 81.61              80.56          80.20    87.2/68.0/76.4    76.8/91.4/83.5
+  Abdomen   Qwen3-VL-8B Without 108        0         82.41              82.70           81.97       82.15                 82.57              82.41          82.31    84.4/76.0/80.0    81.0/87.9/84.3
+  Abdomen     Llama-11B    With 108        0         64.81              65.58           63.52       62.99                 65.43              64.81          63.60    67.6/46.0/54.8    63.5/81.0/71.2
+  Abdomen     Llama-11B Without 108        0         50.00              74.04           53.45       38.92                 75.96              50.00          36.99   48.1/100.0/64.9    100.0/6.9/12.9
+
+====================================================================================================
+FULL SUMMARY TABLE -- BrainFace -- fine-tuned models, With vs Without CoT
+====================================================================================================
+  Dataset    Model Name     CoT  N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted)  Yes-class P/R/F1   No-class P/R/F1
+BrainFace    Lingshu-7B    With 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace    Lingshu-7B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace   MedGemma-4B    With 12        0         91.67              91.67           92.86       91.61                 93.06              91.67          91.72   83.3/100.0/90.9   100.0/85.7/92.3
+BrainFace   MedGemma-4B Without 12        0        100.00             100.00          100.00      100.00                100.00             100.00         100.00 100.0/100.0/100.0 100.0/100.0/100.0
+BrainFace Qwen2.5-VL-7B    With 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace Qwen2.5-VL-7B Without 12        0         91.67              93.75           90.00       91.11                 92.71              91.67          91.48   100.0/80.0/88.9   87.5/100.0/93.3
+BrainFace   Qwen3-VL-8B    With 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace   Qwen3-VL-8B Without 12        0         83.33              82.86           82.86       82.86                 83.33              83.33          83.33    80.0/80.0/80.0    85.7/85.7/85.7
+BrainFace     Llama-11B    With 12        0         66.67              81.82           60.00       55.56                 78.79              66.67          59.26   100.0/20.0/33.3   63.6/100.0/77.8
+BrainFace     Llama-11B Without 12        0         66.67              81.82           60.00       55.56                 78.79              66.67          59.26   100.0/20.0/33.3   63.6/100.0/77.8
+
+====================================================================================================
+FULL SUMMARY TABLE -- Neck -- fine-tuned models, With vs Without CoT
+====================================================================================================
+Dataset    Model Name     CoT  N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted) Yes-class P/R/F1 No-class P/R/F1
+   Neck    Lingshu-7B    With 16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87   62.5/71.4/66.7  75.0/66.7/70.6
+   Neck    Lingshu-7B Without 16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87   62.5/71.4/66.7  75.0/66.7/70.6
+   Neck   MedGemma-4B    With 16        0         75.00              81.82           77.78       74.60                 84.09              75.00          74.21  63.6/100.0/77.8 100.0/55.6/71.4
+   Neck   MedGemma-4B Without 16        0         81.25              85.00           83.33       81.18                 86.87              81.25          81.03  70.0/100.0/82.4 100.0/66.7/80.0
+   Neck Qwen2.5-VL-7B    With 16        0         50.00              47.27           47.62       46.67                 48.18              50.00          48.33   40.0/28.6/33.3  54.5/66.7/60.0
+   Neck Qwen2.5-VL-7B Without 16        0         50.00              47.27           47.62       46.67                 48.18              50.00          48.33   40.0/28.6/33.3  54.5/66.7/60.0
+   Neck   Qwen3-VL-8B    With 16        0         68.75              68.75           69.05       68.63                 69.53              68.75          68.87   62.5/71.4/66.7  75.0/66.7/70.6
+   Neck   Qwen3-VL-8B Without 16        0         75.00              74.60           74.60       74.60                 75.00              75.00          75.00   71.4/71.4/71.4  77.8/77.8/77.8
+   Neck     Llama-11B    With 16        0         56.25              54.17           53.17       51.52                 54.69              56.25          53.41   50.0/28.6/36.4  58.3/77.8/66.7
+   Neck     Llama-11B Without 16        0         50.00              26.67           44.44       33.33                 30.00              50.00          37.50      0.0/0.0/0.0  53.3/88.9/66.7
+
+====================================================================================================
+FULL SUMMARY TABLE -- Abdomen -- fine-tuned models, With vs Without CoT
+====================================================================================================
+Dataset    Model Name     CoT   N  Invalid  Accuracy (%)  Precision (macro)  Recall (macro)  F1 (macro)  Precision (weighted)  Recall (weighted)  F1 (weighted) Yes-class P/R/F1 No-class P/R/F1
+Abdomen    Lingshu-7B    With 108        0         80.56              80.59           80.24       80.35                 80.57              80.56          80.50   80.9/76.0/78.4  80.3/84.5/82.4
+Abdomen    Lingshu-7B Without 108        0         80.56              80.50           80.66       80.51                 80.73              80.56          80.58   77.4/82.0/79.6  83.6/79.3/81.4
+Abdomen   MedGemma-4B    With 108        0         79.63              82.03           80.62       79.52                 82.84              79.63          79.40   71.2/94.0/81.0  92.9/67.2/78.0
+Abdomen   MedGemma-4B Without 108        0         80.56              80.47           80.38       80.42                 80.54              80.56          80.54   79.6/78.0/78.8  81.4/82.8/82.1
+Abdomen Qwen2.5-VL-7B    With 108        0         69.44              79.39           67.14       64.86                 78.25              69.44          65.80   94.7/36.0/52.2  64.0/98.3/77.6
+Abdomen Qwen2.5-VL-7B Without 108        0         77.78              77.84           77.38       77.50                 77.81              77.78          77.69   78.3/72.0/75.0  77.4/82.8/80.0
+Abdomen   Qwen3-VL-8B    With 108        0         80.56              82.00           79.69       79.93                 81.61              80.56          80.20   87.2/68.0/76.4  76.8/91.4/83.5
+Abdomen   Qwen3-VL-8B Without 108        0         82.41              82.70           81.97       82.15                 82.57              82.41          82.31   84.4/76.0/80.0  81.0/87.9/84.3
+Abdomen     Llama-11B    With 108        0         64.81              65.58           63.52       62.99                 65.43              64.81          63.60   67.6/46.0/54.8  63.5/81.0/71.2
+Abdomen     Llama-11B Without 108        0         50.00              74.04           53.45       38.92                 75.96              50.00          36.99  48.1/100.0/64.9  100.0/6.9/12.9
+
+====================================================================================================
+WITH vs WITHOUT CoT  (Diff = With - Without)
+====================================================================================================
+                        Accuracy (%)                F1 (macro)               
+CoT                             With Without   Diff       With Without   Diff
+Dataset   Model Name                                                         
+BrainFace Lingshu-7B          100.00  100.00   0.00     100.00  100.00   0.00
+          MedGemma-4B          91.67  100.00  -8.33      91.61  100.00  -8.39
+          Qwen2.5-VL-7B        91.67   91.67   0.00      91.11   91.11   0.00
+          Qwen3-VL-8B          83.33   83.33   0.00      82.86   82.86   0.00
+          Llama-11B            66.67   66.67   0.00      55.56   55.56   0.00
+Neck      Lingshu-7B           68.75   68.75   0.00      68.63   68.63   0.00
+          MedGemma-4B          75.00   81.25  -6.25      74.60   81.18  -6.58
+          Qwen2.5-VL-7B        50.00   50.00   0.00      46.67   46.67   0.00
+          Qwen3-VL-8B          68.75   75.00  -6.25      68.63   74.60  -5.97
+          Llama-11B            56.25   50.00   6.25      51.52   33.33  18.19
+Abdomen   Lingshu-7B           80.56   80.56   0.00      80.35   80.51  -0.16
+          MedGemma-4B          79.63   80.56  -0.93      79.52   80.42  -0.90
+          Qwen2.5-VL-7B        69.44   77.78  -8.34      64.86   77.50 -12.64
+          Qwen3-VL-8B          80.56   82.41  -1.85      79.93   82.15  -2.22
+          Llama-11B            64.81   50.00  14.81      62.99   38.92  24.07
+
+Saved all tables and raw predictions in /kaggle/working/cot_eval_results
+
+Columns:
+  N / Invalid             -- questions scored / answers that were not Yes or No
+  Accuracy (%)            -- overall exact-match accuracy
+  Precision/Recall/F1 (macro)    -- unweighted average across Yes/No classes
+  Precision/Recall/F1 (weighted) -- weighted by class support
+  Yes-class / No-class P/R/F1    -- per-class precision/recall/F1
+
+Complete shareable report: /kaggle/working/cot_eval_results/FINAL_MODEL_SUMMARY.txt
