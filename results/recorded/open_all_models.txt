@@ -1,5 +1,5 @@
 SAVED NOTEBOOK REPORT
-Source: notebooks/evaluation/open/evaluate_all_models.ipynb
+Source: fdfc6fc28b315f44486772d590b8e70f29bc954b:3-performance-of-all-open-qs-ipynb.ipynb
 Extracted from committed outputs; no new execution or metric calculation.
 Read docs/experiments.md before interpreting these historical results.
 

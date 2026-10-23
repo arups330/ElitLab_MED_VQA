@@ -2,9 +2,9 @@
 
 ## Execution environments
 
-The notebooks are designed around Kaggle and Google Colab, rather than an installable Python package. Run the dependency cells in the notebook you select, then follow its platform-specific data and secret setup. Do not execute every notebook in a single shared environment: older experiments use different dependency versions and installation methods.
+The two experiment pipelines are traced in [workflows](workflows.md). The notebooks are designed around Kaggle and Google Colab, rather than an installable Python package. Run the dependency cells in the notebook you select, then follow its platform-specific data and secret setup. Do not execute every notebook in a single shared environment: older experiments use different dependency versions and installation methods.
 
-The closed CoT training notebooks pin `unsloth==2026.9.2`; some archived notebooks install Transformers from GitHub. The all-model evaluators install Unsloth, and the open evaluator additionally installs `bert-score`, `rouge-score`, `nltk`, and `pillow`. Those cells are preserved; they are not a complete environment lockfile.
+The closed CoT training notebooks pin `unsloth==2026.9.2`; some earlier notebooks install Transformers from GitHub. The all-model evaluators install Unsloth, and the open evaluator additionally installs `bert-score`, `rouge-score`, `nltk`, and `pillow`. Those cells are preserved; they are not a complete environment lockfile.
 
 Record Python, CUDA, PyTorch, Transformers, Unsloth, PEFT, TRL, and bitsandbytes versions from each actual run. A historical saved output cannot establish that today's dependency resolution reproduces the same result. Repository CI needs only Python 3.11 or newer, without GPU dependencies.
 
@@ -36,7 +36,7 @@ image_file,question,answer
 example.png,Example question,Yes
 ```
 
-Main evaluation reads image and question inputs without a `CoT` field. Training notebooks use different roots, including `<region>_train_with_CoT/CT/train`; configure them in the notebook rather than assuming evaluation paths apply to training.
+Pipeline B evaluation reads image and question inputs without a `CoT` field. Pipeline A explicitly compares inclusion and exclusion of test CoT. Training notebooks use different roots, including `<region>_train_with_CoT/CT/train`; configure them in the notebook rather than assuming evaluation paths apply to training.
 
 ## Credentials and model access
 
@@ -77,7 +77,7 @@ Several training cells contain model-specific workarounds: Qwen3-VL single-devic
 
 ## Saved notebook outputs
 
-Downloading, committing, or moving an `.ipynb` does not require clearing its outputs. All original notebooks are fingerprinted in `notebooks/manifest.json`. Run `python scripts/validate_repository.py` after changes. Do not configure pre-commit hooks or Git filters to strip outputs from historical notebooks.
+Downloading, committing, or moving an `.ipynb` does not require clearing its outputs. Original runs are fingerprinted at the pinned Git snapshot in `notebooks/manifest.json`; working notebooks can be updated in place. Run `python scripts/validate_repository.py` after changes. Do not configure pre-commit hooks or Git filters to strip outputs from historical notebooks.
 
 ## One-click launch links
 

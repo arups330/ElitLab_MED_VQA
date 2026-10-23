@@ -1,31 +1,25 @@
 # Contributing
 
-## Scope
+## Daily research workflow
 
-This is a notebook-based research repository. Prefer small changes with a clear experiment or documentation purpose. Do not replace saved experiments with an untested generic training framework.
+Working notebooks can be updated in place from their existing Kaggle or Colab connections. Use exact GitHub destination paths and preserve the saved outputs. See [updating notebooks](docs/updating_notebooks.md).
 
-## Development workflow
+Original runs are retained in the [pinned research snapshot](docs/snapshots.md). CI validates that immutable evidence separately from working files; new results do not need to match old output fingerprints.
+
+## Organization
+
+- Keep Pipeline A (test-CoT conditioning of base models) distinct from Pipeline B (fine-tuned answer-checkpoint comparison).
+- Use lowercase descriptive paths and explicit `open`, `closed`, or `mixed` question-type labels.
+- Preserve dataset splits; record exact model/adapter revisions, prompts, package versions, GPU, seed, and output scope.
+- Mark partial or smoke-test results honestly. Do not claim a benchmark improvement from unrelated checkpoints or conditions.
+- Keep tokens in the platform secret manager. Do not upload raw medical data, private material, or model weights without the relevant rights.
+- For new notebooks, run `python scripts/update_catalog.py` and commit the resulting launch/catalog updates.
+
+## Checks
 
 ```bash
-git switch -c experiment/describe-your-change
 python scripts/validate_repository.py
+python -m unittest discover -s tests -v
 ```
 
-No ML dependencies are needed for repository checks. GPU training and inference happen in the notebook's documented Kaggle/Colab environment.
-
-## Notebook conventions
-
-- Use lowercase, descriptive filenames under `notebooks/reasoning`, `notebooks/training`, or `notebooks/evaluation`.
-- Treat the code and saved outputs of the 31 migrated notebooks as frozen historical snapshots. Markdown-only launch-link maintenance is allowed with an updated reviewed file hash; original code-cell and output fingerprints must remain unchanged. Create a new notebook for new runs instead of silently overwriting saved evidence.
-- Keep code, execution counts, outputs, and configuration together. Save complete final runs and mark partial or smoke-test runs explicitly.
-- Record dataset, model revisions, package versions, prompts, seeds, GPU, metrics, and known failures.
-- Save only shareable artifacts. Store tokens in the platform's secret manager. Exclude private datasets and model weights.
-- New notebooks must be JSON notebook format 4 and pass the integrity check. The migration manifest covers historical notebooks; it is not a list of every future experiment.
-
-## Reports
-
-`python scripts/extract_reports.py` regenerates selected text reports from saved evaluation outputs. The script does not run inference or compute new scores. If results change in a new run, give the report and notebook a distinct version and document the source.
-
-## Pull requests
-
-Describe the problem, final change, and checks performed. Distinguish static validation from actual GPU runs. Do not claim improved performance without controlled measurements. Follow the data and model terms described in [data and licensing](docs/data_and_licensing.md).
+Checks use Python's standard library and Git; they do not execute ML notebook cells. GPU experiments run in their documented environments. The [data and licensing guide](docs/data_and_licensing.md) applies to all contributions.

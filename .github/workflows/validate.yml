@@ -9,12 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Validate notebooks, outputs, and documentation
+      - name: Validate working notebooks and immutable historical evidence
         run: python scripts/validate_repository.py
-      - name: Verify saved report exports
+      - name: Check platform links and workflow indexes
+        run: python scripts/update_catalog.py --check
+      - name: Test repository tooling
+        run: python -m unittest discover -s tests -v
+      - name: Verify historical report exports
         run: |
           python scripts/extract_reports.py
           git diff --exit-code -- results/recorded

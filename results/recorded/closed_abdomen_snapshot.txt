@@ -1,5 +1,5 @@
 SAVED NOTEBOOK REPORT
-Source: notebooks/evaluation/closed/evaluate_abdomen_snapshot.ipynb
+Source: fdfc6fc28b315f44486772d590b8e70f29bc954b:2.1. Performance for Abdomen Only.ipynb
 Extracted from committed outputs; no new execution or metric calculation.
 Read docs/experiments.md before interpreting these historical results.
 

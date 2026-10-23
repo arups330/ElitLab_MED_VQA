@@ -1,112 +1,110 @@
 # Medical Visual Question Answering
 
-**Comparing fine-tuned vision-language models trained with and without chain-of-thought inputs.**
+**Two complementary experiments: test-time reasoning with base models, and fine-tuned answer models evaluated without test-time reasoning.**
 
-Research notebooks for medical image question answering on BrainFace, Neck, and Abdomen subsets of an English SLAKE-derived dataset. The project covers reasoning-data generation, parameter-efficient fine-tuning, and evaluation of closed Yes/No and open-ended answers.
+Medical VQA research on English SLAKE-derived **Abdomen, Brain/Face, and Neck** subsets. The notebooks cover reasoning generation, LoRA fine-tuning, and open/closed question evaluation on Kaggle and Colab.
 
-**Author:** [Arup Saha](https://github.com/arups330) · **Model artifacts:** [Arup330 on Hugging Face](https://huggingface.co/Arup330)
+[Arup Saha](https://github.com/arups330) · [Hugging Face checkpoints](https://huggingface.co/Arup330) · [Notebook launch directory](docs/launch.md) · [Reproduction](docs/reproduction.md)
 
-## Start here
+## Dataset preparation
 
-| Goal | Entry point |
-|---|---|
-| Inspect closed-question predictions and metrics | [Closed-question evaluation](notebooks/evaluation/closed/evaluate_all_models.ipynb) |
-| Inspect open-ended answers and metrics | [Open-question evaluation](notebooks/evaluation/open/evaluate_all_models.ipynb) |
-| Train dataset-specific adapters | [Training notebooks](notebooks/training) |
-| Explore reasoning-data generation | [Reasoning notebooks](notebooks/reasoning) |
-| Find every notebook and its original name | [Notebook catalog](docs/notebooks.md) |
-| Run an experiment on Kaggle or Colab | [Reproduction guide](docs/reproduction.md) |
-| Understand what the saved results do and do not show | [Experiment notes](docs/experiments.md) |
+The inspected data are grouped by **language → body region → modality → original split → question type**. The experiments focus on CT images for Abdomen, Brain/Face (`Brain_Face`), and Neck. Original train, validation, and test assignments are retained; each split has `open.csv` and `closed.csv`.
 
-## Open on the original platform
+See [dataset preparation](docs/dataset_preparation.md) for verified counts and the audit command. The original splitting program is not present in the GitHub notebooks; the documented criteria were checked against the original local metadata archive and exported CSVs. Raw data and images are not uploaded here.
 
-| Workflow | Platform | Launch |
-|---|---|---|
-| Closed-question evaluation | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Fevaluation%2Fclosed%2Fevaluate_all_models.ipynb) |
-| Open-question evaluation | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Fevaluation%2Fopen%2Fevaluate_all_models.ipynb) |
-| BrainFace CoT training | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Ftraining%2Fclosed%2Fbrainface_with_cot.ipynb) |
-| BrainFace training without CoT | Colab | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arups330/ElitLab_MED_VQA/blob/main/notebooks/training/closed/brainface_without_cot.ipynb) |
-| Abdomen open CoT training V2 | Colab | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arups330/ElitLab_MED_VQA/blob/main/notebooks/training/open/abdomen_with_cot_v2.ipynb) |
+## Pipeline A — Test CoT conditioning of base models
 
-[All notebook links, grouped by Colab and Kaggle](docs/launch.md). The platform follows the original notebook metadata. Kaggle exports do not include original published-run URLs; their buttons import the exact GitHub copy. Configure data, credentials, and GPU before running.
-
-## Research scope
-
-- **Models:** Lingshu-7B, MedGemma-4B, Qwen2.5-VL-7B, Qwen3-VL-8B, and Llama-3.2-11B-Vision.
-- **Training:** dataset-specific LoRA adapters using Unsloth; selected workflows use 4-bit model loading and gradient checkpointing.
-- **Comparison:** checkpoints trained with reasoning inputs versus checkpoints trained without them. The main evaluation notebooks use a shared image-and-question prompt.
-- **Closed answers:** accuracy, precision, recall, and F1, including macro, weighted, and per-class reporting.
-- **Open answers:** inspect the notebook's normalization and metric functions, including BLEU, ROUGE-L, and BERTScore. These metrics do not establish clinical correctness.
-
-The default all-model evaluators cover **3 datasets × 5 model families × 2 training conditions = 30 evaluations per question type**. That describes the configured experiment grid, not a claim that every saved notebook contains a complete, verified run.
-
-## Workflow
+1. Generate CoT for training questions using a vision-language model.
+2. Fine-tune a reasoning generator with generated **CoT as its assistant target**.
+3. Use the reasoning generator to populate a test-data `CoT` column.
+4. Evaluate **base/instruction model checkpoints**, once with the test CoT included and once with an empty CoT input.
 
 ```mermaid
 flowchart LR
-    A[External images and question CSVs] --> B[Prepare training data]
-    B --> C[Fine-tune with reasoning inputs]
-    B --> D[Fine-tune without reasoning inputs]
-    C --> E[Hugging Face LoRA adapters]
-    D --> E
-    E --> F[Shared evaluation prompt]
-    F --> G[Predictions and metrics]
+    T[Training image and question] --> G[Generate training CoT]
+    G --> R[Fine-tune reasoning generator]
+    R --> C[Generate test CoT column]
+    C --> A[Base model with test CoT]
+    Q[Test image and question] --> A
+    Q --> B[Same base model without test CoT]
+    A --> M[Compare predictions and metrics]
+    B --> M
 ```
 
-## Quick start
+**Important:** the saved CoT-generation prompts include the ground-truth answer. This makes the resulting test-CoT branch **answer-conditioned**, not a blind image-and-question evaluation. Also, the saved Neck generator currently selects base Llama; see the [code trace](docs/workflows.md) for this and other differences between intended stages and saved configurations.
 
-### View the saved work
+| Stage | Notebooks |
+|---|---|
+| Generate reasoning data | [Reasoning generation](notebooks/reasoning) |
+| Train reasoning generators | [Mixed open/closed reasoning-target training](notebooks/training/reasoning_generators/mixed) |
+| Evaluate base models with/without test CoT | [Closed questions](notebooks/evaluation/base_models/closed) · [Open questions](notebooks/evaluation/base_models/open) |
 
-Open a notebook on GitHub to see its code and **saved outputs**, including tables and embedded visualizations. You do not need a GPU, dataset access, or a Hugging Face token to read the committed outputs. If GitHub's notebook renderer is temporarily unavailable, download the `.ipynb` and open it in Jupyter, Kaggle, or Colab.
+## Pipeline B — Fine-tuned answer-model comparison
 
-Selected text reports extracted from existing outputs are also available under [results/recorded](results/recorded). They are historical records, **not newly executed benchmarks**.
+1. Fine-tune dataset-specific answer models with image, question, and training CoT as inputs.
+2. Fine-tune comparison answer models without CoT input.
+3. Evaluate both sets of **fine-tuned checkpoints** using the same image-and-question prompt, without a test CoT column.
 
-### Reproduce an evaluation
-
-1. Import the [closed](notebooks/evaluation/closed/evaluate_all_models.ipynb) or [open](notebooks/evaluation/open/evaluate_all_models.ipynb) evaluator into Kaggle.
-2. Enable a CUDA GPU and Internet. Attach the dataset input referenced in the notebook (`arups330/slackdataset`); access is managed outside this repository.
-3. Add `HF_TOKEN` to Kaggle Secrets and enable it for the notebook. Accept any base-model access terms through your own Hugging Face account.
-4. Run the installation cell in a fresh session. Check dataset paths, question type, exact model repository names, and checkpoint revisions before loading models.
-5. Start with `MAX_ROWS_PER_DATASET = 1`, one dataset, and one model. Smoke-test output is not a final benchmark.
-6. Set `MAX_ROWS_PER_DATASET = None` for a full run. Preserve predictions and their metadata along with the printed summary.
-
-See [reproduction](docs/reproduction.md) for input schemas, output paths, GPU constraints, and resume settings.
-
-### Check repository integrity locally
-
-```bash
-git clone https://github.com/arups330/ElitLab_MED_VQA.git
-cd ElitLab_MED_VQA
-python scripts/validate_repository.py
+```mermaid
+flowchart LR
+    X[Training image and question] --> W[Train answer model with CoT input]
+    C[Training CoT column] --> W
+    X --> N[Train answer model without CoT input]
+    W --> E[Test fine-tuned checkpoints]
+    N --> E
+    T[Test image and question without CoT] --> E
+    E --> S[Compare predictions and metrics]
 ```
 
-The checker uses the Python standard library. It verifies reviewed notebook hashes, original code-cell fingerprints, and saved output counts, notebook structure, local Markdown links, and common credential patterns. It does **not** train models or verify scientific scores. CI runs the same checks; it does not execute GPU workloads.
+| Stage | Notebooks |
+|---|---|
+| Fine-tune answer models | [Closed questions](notebooks/training/closed) · [Open questions](notebooks/training/open) |
+| Evaluate fine-tuned models | [Closed evaluator](notebooks/evaluation/closed/evaluate_all_models.ipynb) · [Open evaluator](notebooks/evaluation/open/evaluate_all_models.ipynb) |
 
-## Repository layout
+Pipeline B uses five model families: Lingshu-7B, MedGemma-4B, Qwen2.5-VL-7B, Qwen3-VL-8B, and Llama-11B. The full grid is 3 regions × 5 model families × 2 training conditions, separately for open and closed questions. Pipeline A has a different registry, including Gemma4-E4B in the inspected evaluators; do not assume both pipelines use an identical model list.
+
+## Open and run
+
+Use [the launch directory](docs/launch.md). Each notebook keeps its **original platform**: Colab opens the GitHub notebook, while Kaggle imports a copy into its editor. Original published Kaggle URLs are not stored in the exports. Configure data, credentials, and GPU before running; clicking a button does not run cells.
+
+Saved inputs, execution counts, outputs, tables, and figures remain in the notebooks. You can inspect them on GitHub without executing GPU workloads. [Historical text reports](results/recorded) are exported from the original Git snapshot, not recomputed results.
+
+## Continuing your work
+
+You can update the working notebooks in place from Kaggle or Colab. The original 31 runs remain accessible in the [immutable research snapshot](docs/snapshots.md). CI checks working notebook structure and credentials while verifying original evidence against the pinned Git commit; it no longer rejects ordinary new evaluation outputs.
+
+For an existing connection, configure the **exact destination path** listed in the [catalog](docs/notebooks.md). In particular, Pipeline B's existing evaluator paths are unchanged:
+
+```text
+notebooks/evaluation/closed/evaluate_all_models.ipynb
+notebooks/evaluation/open/evaluate_all_models.ipynb
+```
+
+See [the update guide](docs/updating_notebooks.md) for saving completed runs, retaining outputs, and publishing new experiments.
+
+## Repository structure
 
 ```text
 notebooks/
-  reasoning/                 # Reasoning-data generation
-  training/{closed,open}/    # Dataset-specific fine-tuning
-  evaluation/{closed,open}/  # Main evaluators and saved subset snapshots
-  archive/                  # Earlier experiments retained with outputs
-  manifest.json             # Original paths, content hashes, output fingerprints
-docs/                       # Setup, methods, caveats, and full notebook catalog
-results/recorded/            # Selected reports extracted from saved outputs
-scripts/                    # Integrity checks and report extraction
-.github/workflows/          # CPU-only repository validation
+  reasoning/                         # Pipeline A: train/test CoT generation
+  training/reasoning_generators/mixed # Pipeline A: CoT-target generator training
+  evaluation/base_models/{open,closed} # Pipeline A: test-CoT vs no-test-CoT
+  training/{open,closed}/             # Pipeline B: answer-target adapter training
+  evaluation/{open,closed}/           # Pipeline B: fine-tuned checkpoint comparison
+  manifest.json                      # Provenance, original platform, workflow mapping
+docs/                                # Methods, data audit, setup, launch and update guides
+results/recorded/                    # Immutable-snapshot text reports
+scripts/                             # Data audit, report export, repository checks
+tests/                               # CPU-only tooling tests
 ```
 
-## Interpreting the experiments
+Lowercase descriptive paths follow conventions used by [Hugging Face TRL](https://github.com/huggingface/trl), [Unsloth notebooks](https://github.com/unslothai/notebooks), and [PyTorch Lightning](https://github.com/Lightning-AI/pytorch-lightning). Open and closed question types are explicit wherever a notebook handles only one type; reasoning generators that train on both remain labeled `mixed`.
 
-CoT here refers to a **training-input condition**. Supplying reasoning during training does not mean the model independently generates equivalent reasoning at inference. Generated reasoning may use ground-truth answers; this is an important limitation when interpreting comparisons.
+## Local checks
 
-The saved BrainFace subset notebook currently selects Abdomen in its configuration while retaining BrainFace outputs. The historical record is preserved as-is and clearly labeled in [experiment notes](docs/experiments.md). Do not attribute those outputs to the current configuration without a fresh run. Small test sets, metric handling of invalid answers, and mutable adapter names also limit comparisons.
+```bash
+python scripts/validate_repository.py
+python -m unittest discover -s tests -v
+```
 
-## Data, model access, and licensing
-
-Raw medical images, datasets, and model weights are not bundled here. Obtain them from their original providers and follow their access conditions. This is research software, not a clinical diagnostic system. See [data and licensing](docs/data_and_licensing.md) before redistributing artifacts.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). Keep historical notebooks and outputs intact; put new runs in separately named notebooks and record the environment and checkpoint revisions. The [migration record](docs/migration.md) maps every original file to its organized location.
+These checks do not perform training, inference, or scientific score verification. Read [experiment caveats](docs/experiments.md), [the code-level workflow trace](docs/workflows.md), and [data and licensing](docs/data_and_licensing.md) before interpreting or redistributing results. The associated manuscript is in preparation; no publication or clinical validation is claimed.

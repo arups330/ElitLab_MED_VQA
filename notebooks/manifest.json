@@ -11,7 +11,10 @@
       "source_git_blob": "fd945575b625e2174792fd28059843370215b94c",
       "original_sha256": "fb7fb0b99234db90e308e32fdf6ca6ac284018fa484a96001dc9ff90475a597a",
       "code_cells_sha256": "81a294c60c98643fd3711f217989d77c0ff831e21dbb1a829267f56d14122399",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "fine-tuned model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "2.1. Performance for Abdomen Only.ipynb",
@@ -23,7 +26,10 @@
       "source_git_blob": "a97f25868cad09f3bf02e54eba5653041df46ab9",
       "original_sha256": "87fae136e751e58aa48bff14dbd1f04b171ccb2a0a79d2121bd7702152922d24",
       "code_cells_sha256": "12ba4d5e75c47cc60bcb1050266cf14969dde8c36fe4b0c38f4db0caaa54cac7",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "fine-tuned model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "2.1.Performance for Brainface Only.ipynb",
@@ -35,7 +41,10 @@
       "source_git_blob": "1496dfca95585945f61165f261931bbd5edf88f4",
       "original_sha256": "6f7e6a763eb54a36ad7ac5e0b1a0b3865300a79950bab8b2a9dcc0059c80799d",
       "code_cells_sha256": "edb2af4d0fa4207b8c3bd384e70dd702d5da9820997d30be6b45dda34baef24f",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "fine-tuned model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "3-performance-of-all-open-qs-ipynb.ipynb",
@@ -47,7 +56,10 @@
       "source_git_blob": "039fc026bd42dea9d91a7db1238110e631afd716",
       "original_sha256": "0a398da0b87ed75a1f0004f96dda40e03fd352ff67d51efc62c89d71c32db7a8",
       "code_cells_sha256": "aa88fc69a97089a34eb64045e3c86f44fb1b50aa30ca14c0ecd13647125f9d4e",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "fine-tuned model evaluation",
+      "question_type": "open"
     },
     {
       "original_path": "Abdomen(closed)_WITHOUT_CoT_finetune.ipynb",
@@ -59,7 +71,10 @@
       "source_git_blob": "417440ad545ec10485d26581fa8cf02da9891a40",
       "original_sha256": "4199bf8a8f6d23d0026c05ebda0d0cf0c8ea1c9c0e5e89edfc68e681512e1b65",
       "code_cells_sha256": "bac0fd40fa5f94e79ecd3d67e3cdf9c0bc9632124b831f24bcbb172757d39610",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "Abdomen-closed-with-cot-final-tune.ipynb",
@@ -71,7 +86,10 @@
       "source_git_blob": "3fc75324d0588e82d93d861a85e5359d30b349bf",
       "original_sha256": "47726d94f1e6187f7ba59a15368458a2b7fce219955fd8b898ceae70f7cc57db",
       "code_cells_sha256": "d781d238f349cad8589ce386e59649c94963920c29bfa128632b92c9ae073656",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "Abdomen_open__CoT_finetune.ipynb",
@@ -83,7 +101,10 @@
       "source_git_blob": "19e18765c80983e2b58e46e0aa6dca8e2bcdcc53",
       "original_sha256": "6960595e3ba9959d5be32bbb344b9fb580104493c7e183fc98ad58201d1ccd49",
       "code_cells_sha256": "c343674aa56ec8c622af4b7646f5a98125eeb9deeec396d56cf37327e9fc2d6a",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "Abdomen_open__CoT_finetune_V2.ipynb",
@@ -95,7 +116,10 @@
       "source_git_blob": "bb42a0c008e9ac496a342b30d012f2b828c71093",
       "original_sha256": "a071e23da21c19e85e7d51fd9cabe6e244b894980a8e2dab56522ef0021fa6bb",
       "code_cells_sha256": "7aa2b0168af3818c69f9073eb2dfe7f8d093069a73bf1943c5b0c7ac48e4e158",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "Abdomen_open__WITHOUT_CoT_finetune.ipynb",
@@ -107,7 +131,10 @@
       "source_git_blob": "5f91ae7d0056979b6d2a120a14f72921bb3a4ad2",
       "original_sha256": "584359c1d679d0e8fbda48fb53c0333937e7a7db6268fd44fdcab2d55083db6f",
       "code_cells_sha256": "b9ea3cd60aeefcf4e56b032586bc35541a3eaf1a083207d80993ad37686ba899",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "BrainFace(closed)_WITHOUT_CoT_finetune.ipynb",
@@ -119,7 +146,10 @@
       "source_git_blob": "e3f4e6158432848e08cc393f973e3f477fe6cb77",
       "original_sha256": "83d429d287567bbcd7f2b467f3c9f51e57a5d54c8ebf64d615e321fe1081f564",
       "code_cells_sha256": "fa313984123f7661e7e96d6dd73a429b0721c629613a72badb84c00c3eefb513",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "BrainFace-closed-with-cot-final-tune.ipynb",
@@ -131,7 +161,10 @@
       "source_git_blob": "5acd3c2b0e6a2d849cbe497e971dacdf7ffd20fd",
       "original_sha256": "c95f5aa189bf1acf8599a7ed1783f41c162d37c99ba5b657e2f5980fd9b85d25",
       "code_cells_sha256": "4a90cfb9bd9f99c87863545580360324455e8eb6d779a64d1bb48ed143ae5d3d",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "BrainFace_open__CoT_finetune.ipynb",
@@ -143,7 +176,10 @@
       "source_git_blob": "9f2602a8a2d95f60c1754c9bb57b336b6e4fcbfc",
       "original_sha256": "9e40333fd5b013e91b921db80c0313c075e43f138fca0a1f85ae229c8183a80e",
       "code_cells_sha256": "d431a212f5c6c040c773ed7b6e40d7a52b29615c839a2416367f04da71d7d722",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "BrainFace_open__WITHOUT_CoT_finetune.ipynb",
@@ -155,7 +191,10 @@
       "source_git_blob": "b829de807fca4960ebc7e8eff310526a2068eb8f",
       "original_sha256": "ca6bb337b92be460fe1821811e00b53b63f8d389097cdab0ecb6ad619777e3d6",
       "code_cells_sha256": "7a11a61fde6d5fe01e735f3610e4c07be71c2fc4bdd57330f52ccd5915f50a93",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "Cot-generation-for-abdomen-test_Closed.ipynb",
@@ -167,7 +206,10 @@
       "source_git_blob": "bfd6e13003ee6f77e1c40ce2206199e70323cec7",
       "original_sha256": "ea033df8d18e072c4dc46f2bbfddfac3670843535b854e4551cce1dd1e2b9cd2",
       "code_cells_sha256": "0d54bb3b91977133b076c3d1feb3f340eda310a8932abc5a45f55ffec32b4f8a",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "closed"
     },
     {
       "original_path": "Cot-generation-for-abdomen-test_Open.ipynb",
@@ -179,11 +221,14 @@
       "source_git_blob": "104d6a9d7e21ed3a998c1b264e48522e04a09739",
       "original_sha256": "57a4a0f21f9fb931008c7648096b015dfacabbb7fb189da09fcf8f02f44b72e0",
       "code_cells_sha256": "bb464cdc13359a7f01c7f35ca46bb6943077dce7aed962f0ac8b562ffd26d9b7",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "open"
     },
     {
       "original_path": "Fine Tune with CoT (Abdomen).ipynb",
-      "path": "notebooks/archive/early_experiments/fine_tune_abdomen_with_cot.ipynb",
+      "path": "notebooks/training/reasoning_generators/mixed/abdomen_llama.ipynb",
       "sha256": "33600fcd817300ddfa2e7eede88bf1b31a9a291c837ef61379a12a4749eea5b0",
       "cells": 12,
       "output_count": 24,
@@ -191,11 +236,14 @@
       "source_git_blob": "b9c6b19e5d47d0d29535c743beb04eadc00fdb76",
       "original_sha256": "33600fcd817300ddfa2e7eede88bf1b31a9a291c837ef61379a12a4749eea5b0",
       "code_cells_sha256": "dc7f72d5a63a13f6e52d4336cafdbea462383b24fc57197d2bf9b4d546423c29",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning-generator training",
+      "question_type": "mixed or reused"
     },
     {
       "original_path": "Fine Tune with CoT.ipynb",
-      "path": "notebooks/archive/early_experiments/fine_tune_with_cot.ipynb",
+      "path": "notebooks/training/reasoning_generators/mixed/brainface_neck_llama.ipynb",
       "sha256": "93e080ad37a64929505a87511569b07a9915261129d7e8dd308d0399b8f3f938",
       "cells": 12,
       "output_count": 0,
@@ -203,7 +251,10 @@
       "source_git_blob": "051286358674e57ee0fb6b0d93de5196f8f1ce59",
       "original_sha256": "93e080ad37a64929505a87511569b07a9915261129d7e8dd308d0399b8f3f938",
       "code_cells_sha256": "8c4b46585057eb214c393b8c0a6051f7f4daf951749ebd28cb71d031552df96c",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning-generator training",
+      "question_type": "mixed or reused"
     },
     {
       "original_path": "Neck(closed)_WITHOUT_CoT_finetune.ipynb",
@@ -215,7 +266,10 @@
       "source_git_blob": "ad8cf0e72689dcdada7358fa335740ffda59c833",
       "original_sha256": "896cdc656a49cf9d9810fe47774f6ea85260ddd85d26eb52cef82bc37d9530a0",
       "code_cells_sha256": "69e6362f603a6b772172571807c796cfa7f5c5e8c2206408afb97ff81b9c40c4",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "Neck-closed-with-cot-final-tune.ipynb",
@@ -227,7 +281,10 @@
       "source_git_blob": "3fc75324d0588e82d93d861a85e5359d30b349bf",
       "original_sha256": "47726d94f1e6187f7ba59a15368458a2b7fce219955fd8b898ceae70f7cc57db",
       "code_cells_sha256": "d781d238f349cad8589ce386e59649c94963920c29bfa128632b92c9ae073656",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "closed"
     },
     {
       "original_path": "Neck_open__CoT_finetune.ipynb",
@@ -239,7 +296,10 @@
       "source_git_blob": "7d3663ccb0752385e469a254b79158fc0837d288",
       "original_sha256": "bf46d4c1035b9484930b8bbd6f5dd61b0fae829c961472af9208b33c44438d02",
       "code_cells_sha256": "acc373457d6a8e253735d8152aea94b156fb00397aa43405a7fb8248fdfc8290",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "Neck_open__WITHOUT_CoT_finetune.ipynb",
@@ -251,11 +311,14 @@
       "source_git_blob": "9977aa12cc09829b224a4767accfe536f61cd4c4",
       "original_sha256": "a9f65defcc2a7de0d5b8e5b3c01e3dccb57360d5cc25e09057867a214a845ea3",
       "code_cells_sha256": "d9b38ac1fd0faa1c4785094ff28dd23af9a9283fa53b0bd0d65d2f419f22aa90",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "B: adapter comparison",
+      "stage": "answer-model training",
+      "question_type": "open"
     },
     {
       "original_path": "Performance_with_CoT_BrainFace_V2(1).ipynb",
-      "path": "notebooks/archive/evaluation/performance_brainface_v2.ipynb",
+      "path": "notebooks/evaluation/base_models/closed/brainface_v2.ipynb",
       "sha256": "50847304abcce75217809ffcfabb2cb868ba85bf8bbbf8b3334bc82ca87908e2",
       "cells": 13,
       "output_count": 76,
@@ -263,43 +326,55 @@
       "source_git_blob": "f95879752a9d249232f516ffaa9d1afd58599a8c",
       "original_sha256": "50847304abcce75217809ffcfabb2cb868ba85bf8bbbf8b3334bc82ca87908e2",
       "code_cells_sha256": "fc3e6c2a82cb9ce02b25687d4417a019530a8614c8e6d06f60d2506003716a76",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "Performance_with_CoT_V2.ipynb",
-      "path": "notebooks/archive/evaluation/performance_with_cot_v2.ipynb",
-      "sha256": "1c26ae62d05a110ee494613ade53d710cd63ab2a3ea84e0098c65ed6ff207bca",
+      "path": "notebooks/evaluation/base_models/closed/comparison_v2.ipynb",
+      "sha256": "1764ad86f82fc0fe9a074a8f19cea2b5c8519f96d5c1eb551552ea517bcafe0e",
       "cells": 13,
       "output_count": 73,
       "outputs_sha256": "f1950f4d7ac3e1e9f62abef32c7a22b1ca83b27869624de15de42c7d056731a3",
       "source_git_blob": "b81a472fad5e33e343762dced2804ef206d4d37d",
       "original_sha256": "ef701fa274ab09d586e087024360e0ba5831781867a456c6e7d30f609549a568",
       "code_cells_sha256": "8dc149892e52fcdf2931c6d8a5961416263d78e2eed1b2baa1c35b2eb9615188",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "Performance_with_CoT_V3(Abdomen)_Closed.ipynb",
-      "path": "notebooks/archive/evaluation/performance_abdomen_closed_v3.ipynb",
-      "sha256": "a38c2bee79e6c4ef0af69e16d5e4622b89371d78a170fe1a97eda29b99402292",
+      "path": "notebooks/evaluation/base_models/closed/abdomen_v3.ipynb",
+      "sha256": "39fcc018fa3053556d78f261ca143e189eb14ce51112baaec4ae0c3082751f68",
       "cells": 13,
       "output_count": 73,
       "outputs_sha256": "7cfb0433dbda0befe6b5c439392571fba04f0b7426295b02eb2aaa0209684cf7",
       "source_git_blob": "1ce4ca6fed641008f775b532f2277325c194a313",
       "original_sha256": "2db5647ef9dfc5c886d65e45ad09bcb80a948572b8e11b98759728c326005337",
       "code_cells_sha256": "32a3d3ead0859c32f68114a19182e63748b8fd472285660553f195365870ccaf",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "closed"
     },
     {
       "original_path": "Performance_with_CoT_v3(abdomen_Open).ipynb",
-      "path": "notebooks/archive/evaluation/performance_abdomen_open_v3.ipynb",
-      "sha256": "c5b1c6c81445b24855680aa6f4ec464e8f097f4859949f8192d683950bb30e2f",
+      "path": "notebooks/evaluation/base_models/open/abdomen_v3.ipynb",
+      "sha256": "e4ad05e0dda88a960886b29c1f1f08d09dc988d10b13556092fc5ba3ded9644a",
       "cells": 14,
       "output_count": 99,
       "outputs_sha256": "02d6ef0174dfa8a0a00701ef923ccfcc839458ee15138701f28ca75167871232",
       "source_git_blob": "3517265a92dfa43540d5e757b97bfb27f551e5e6",
       "original_sha256": "a546c95c378fab98d6279f65c59c110f948364746cb129e73e8896bc950e510f",
       "code_cells_sha256": "5a694c663db9c24a04e8642ec6ccaf92f0832a6ff4318a60a783b7c92bc632b2",
-      "platform": "Colab"
+      "platform": "Colab",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "open"
     },
     {
       "original_path": "cot-generation-for-abdoemen-data(Open).ipynb",
@@ -311,7 +386,10 @@
       "source_git_blob": "e98e6ea43862c370bfd9306ed480a8583ffab9c7",
       "original_sha256": "f739f8be63e99badde176779b68f4be1312eaea05036c78563ece59f5372e2f9",
       "code_cells_sha256": "8495906c17878f99192f6467ea283ede8e4f0c29d66332253a75560ec3d85052",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "open"
     },
     {
       "original_path": "cot-generation-for-abdoemen-data.ipynb",
@@ -323,7 +401,10 @@
       "source_git_blob": "a0b35aa82b524723531e60e5e376478166833119",
       "original_sha256": "d69806f691c3b903760118dee358e7b56aba5bb44c870dd31255a73bfe2c1911",
       "code_cells_sha256": "84f2f7cded9ead519b3fb2cd95a857963799c2a0479b5271e10ba7a287d751ba",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "closed"
     },
     {
       "original_path": "cot-generation-for-test-data.ipynb",
@@ -335,7 +416,10 @@
       "source_git_blob": "62fec35fab177feb6199f1d01cb2b3fb3b179b71",
       "original_sha256": "e54cd96fe3f47b2f8de602f3b8fa74ca5c0046c892777f99781a49c0295938cf",
       "code_cells_sha256": "8c61d78535ee58bfae694523bd11dd92675d566b98862f3cb96ff929c6acd590",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "mixed or reused"
     },
     {
       "original_path": "llama-3-2-vision-for-cot-generation.ipynb",
@@ -347,11 +431,14 @@
       "source_git_blob": "2a63535b7a1832ea5bd193581a9d0b2be8487f47",
       "original_sha256": "d140850c3eb66aee50fa246c13215e57d0ce3da0693e42e4905fe52b5a4eebe7",
       "code_cells_sha256": "5035e542687488fd48031308263012f8a459f367a5e024b1954fe529ab408793",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "reasoning generation",
+      "question_type": "mixed or reused"
     },
     {
       "original_path": "performance-with-cot-open-BrainFace.ipynb",
-      "path": "notebooks/archive/evaluation/performance_brainface_open.ipynb",
+      "path": "notebooks/evaluation/base_models/open/brainface.ipynb",
       "sha256": "69e78eff53bebd5a6bd8fa9032afbea3e6d114f70f89301f38ff0f3a96399dfb",
       "cells": 24,
       "output_count": 90,
@@ -359,11 +446,14 @@
       "source_git_blob": "ae5eedb4d3c047488aac38e3e7ebeb637ac3b4ce",
       "original_sha256": "69e78eff53bebd5a6bd8fa9032afbea3e6d114f70f89301f38ff0f3a96399dfb",
       "code_cells_sha256": "fb7da65d951fcb2dbefc50f3a9dec1b1e88cf12b66faf8da19b86d97222eb17b",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "open"
     },
     {
       "original_path": "performance-with-cot-open-neck.ipynb",
-      "path": "notebooks/archive/evaluation/performance_neck_open.ipynb",
+      "path": "notebooks/evaluation/base_models/open/neck.ipynb",
       "sha256": "612f6bf1a39b8b104716f57d3f292c8d0d0f61dc9fd27c59ffe6ec6c7476e8f5",
       "cells": 24,
       "output_count": 90,
@@ -371,7 +461,11 @@
       "source_git_blob": "754b37c902f00f331375c29638d35336b98cdaee",
       "original_sha256": "612f6bf1a39b8b104716f57d3f292c8d0d0f61dc9fd27c59ffe6ec6c7476e8f5",
       "code_cells_sha256": "d3a7c1fecdbc1823cb148c1d615c50486467b39e4ac1ac7d1c80889009838b3f",
-      "platform": "Kaggle"
+      "platform": "Kaggle",
+      "pipeline": "A: test CoT conditioning",
+      "stage": "base-model evaluation",
+      "question_type": "open"
     }
-  ]
+  ],
+  "preservation_policy": "Original runs are immutable in upstream_commit; working notebook code and outputs may change."
 }

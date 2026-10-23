@@ -1,11 +1,12 @@
-# Recorded results
+# Results
 
-`recorded/` contains selected report text extracted from the four main saved evaluation notebooks. No new training or inference was performed. The notebook outputs are the source of these reports, including their historical limitations and possible configuration mismatches.
-
-Regenerate with:
+- `recorded/` contains selected text reports extracted from the original immutable Git snapshot. These files remain historical even when working notebooks are updated.
+- `dataset_audit.json` contains aggregate local CSV checks against the original metadata archive, with no source records or images.
+- `latest/`, when generated, contains selected reports from current working notebook outputs.
 
 ```bash
-python scripts/extract_reports.py
+python scripts/extract_reports.py           # fixed original reports
+python scripts/extract_reports.py --working # latest working reports
 ```
 
-Embedded tables, figures, and other MIME outputs remain inside their `.ipynb` files. The text export does not replace those notebook outputs. See [experiment caveats](../docs/experiments.md) before interpreting the reports.
+Neither command runs inference or recomputes scores. Embedded tables and figures remain in the notebooks. [Workflow distinctions](../docs/workflows.md) and [experiment caveats](../docs/experiments.md) apply when interpreting scores.

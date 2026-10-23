@@ -1,6 +1,8 @@
 """Export selected existing text reports without running notebook code."""
 from __future__ import annotations
 
+import argparse
+import subprocess
 import json
 import re
 from pathlib import Path
@@ -21,10 +23,21 @@ def output_text(output: dict) -> str:
 
 
 def main() -> None:
-    destination = ROOT / 'results/recorded'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--working', action='store_true', help='Export current working outputs to results/latest')
+    args = parser.parse_args()
+    manifest = json.loads((ROOT / 'notebooks/manifest.json').read_text(encoding='utf-8'))
+    originals = {r['path']:r['original_path'] for r in manifest['notebooks']}
+    destination = ROOT / ('results/latest' if args.working else 'results/recorded')
     destination.mkdir(parents=True, exist_ok=True)
     for name, source in SOURCES.items():
-        notebook = json.loads((ROOT / source).read_text(encoding='utf-8'))
+        if args.working:
+            notebook = json.loads((ROOT / source).read_text(encoding='utf-8'))
+            provenance = source
+        else:
+            original = originals[source]
+            notebook = json.loads(subprocess.check_output(['git','show',manifest['upstream_commit']+':'+original],cwd=ROOT))
+            provenance = manifest['upstream_commit'] + ':' + original
         reports = []
         for index, cell in enumerate(notebook['cells']):
             texts = [output_text(output) for output in cell.get('outputs', [])]
@@ -33,7 +46,7 @@ def main() -> None:
                 reports.append(f'--- Saved cell {index + 1} ---\n{text.rstrip()}\n')
         if not reports:
             raise ValueError(f'No saved summary text found in {source}; do not invent results.')
-        header = (f'SAVED NOTEBOOK REPORT\nSource: {source}\n'
+        header = (f'SAVED NOTEBOOK REPORT\nSource: {provenance}\n'
                   'Extracted from committed outputs; no new execution or metric calculation.\n'
                   'Read docs/experiments.md before interpreting these historical results.\n\n')
         (destination / f'{name}.txt').write_text(header + '\n'.join(reports), encoding='utf-8', newline='\n')
