@@ -11,3 +11,7 @@ Organization adds README and workflow documentation, integrity tooling, selected
 ## Local workspace comparison
 
 `E:/Eliteclub/MED_VQA/Code` contained only a small subset of notebooks, a pre-integration backup, and a Python export. These were not used to replace the more complete GitHub snapshot. Private local data, paper folders, and result folders were not uploaded.
+
+## Launch-link maintenance
+
+After the initial byte-identical migration, markdown-only Colab links were repaired to use the new paths. The manifest retains `original_sha256` and adds `code_cells_sha256`; all original code cells (including execution counts and outputs) are unchanged. The reviewed `sha256` reflects the markdown link repair. Launch buttons are also available in the main README, catalog, launch directory, and notebook-folder READMEs.

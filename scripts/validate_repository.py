@@ -30,12 +30,31 @@ def check(root: Path = ROOT) -> tuple[list[str], int]:
             errors.append(f'Historical notebook changed: {record["path"]}; save a new run separately.')
         try:
             notebook = json.loads(raw)
+            code_cells = [c for c in notebook['cells'] if c['cell_type'] == 'code']
+            code_digest = hashlib.sha256(json.dumps(code_cells, sort_keys=True, ensure_ascii=True).encode()).hexdigest()
+            if code_digest != record['code_cells_sha256']:
+                errors.append(f'Original code cells changed: {record["path"]}')
             outputs = [c.get('outputs', []) for c in notebook['cells']]
             digest = hashlib.sha256(json.dumps(outputs, sort_keys=True, ensure_ascii=True).encode()).hexdigest()
             if digest != record['outputs_sha256'] or sum(map(len, outputs)) != record['output_count']:
                 errors.append(f'Saved outputs changed: {record["path"]}')
         except (ValueError, KeyError, TypeError) as exc:
             errors.append(f'Invalid notebook data: {record["path"]}: {exc}')
+
+    launch_text = (root / 'docs/launch.md').read_text(encoding='utf-8')
+    for record in records:
+        nb = json.loads((root / record['path']).read_text(encoding='utf-8'))
+        platform = 'Colab' if 'colab' in nb.get('metadata', {}) else 'Kaggle'
+        if record.get('platform') != platform:
+            errors.append(f'Incorrect original platform: {record["path"]}')
+        if platform == 'Colab':
+            expected = 'https://colab.research.google.com/github/arups330/ElitLab_MED_VQA/blob/main/' + record['path']
+        else:
+            from urllib.parse import quote
+            raw = 'https://raw.githubusercontent.com/arups330/ElitLab_MED_VQA/main/' + record['path']
+            expected = 'https://www.kaggle.com/kernels/welcome?src=' + quote(raw, safe='')
+        if expected not in launch_text:
+            errors.append(f'Missing matching platform launch link: {record["path"]}')
 
     notebooks = list((root / 'notebooks').rglob('*.ipynb'))
     for path in notebooks:

@@ -16,7 +16,7 @@ No ML dependencies are needed for repository checks. GPU training and inference 
 ## Notebook conventions
 
 - Use lowercase, descriptive filenames under `notebooks/reasoning`, `notebooks/training`, or `notebooks/evaluation`.
-- Treat the 31 migrated notebooks as frozen historical snapshots. Create a new notebook for new runs instead of silently overwriting saved evidence.
+- Treat the code and saved outputs of the 31 migrated notebooks as frozen historical snapshots. Markdown-only launch-link maintenance is allowed with an updated reviewed file hash; original code-cell and output fingerprints must remain unchanged. Create a new notebook for new runs instead of silently overwriting saved evidence.
 - Keep code, execution counts, outputs, and configuration together. Save complete final runs and mark partial or smoke-test runs explicitly.
 - Record dataset, model revisions, package versions, prompts, seeds, GPU, metrics, and known failures.
 - Save only shareable artifacts. Store tokens in the platform's secret manager. Exclude private datasets and model weights.

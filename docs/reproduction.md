@@ -78,3 +78,7 @@ Several training cells contain model-specific workarounds: Qwen3-VL single-devic
 ## Saved notebook outputs
 
 Downloading, committing, or moving an `.ipynb` does not require clearing its outputs. All original notebooks are fingerprinted in `notebooks/manifest.json`. Run `python scripts/validate_repository.py` after changes. Do not configure pre-commit hooks or Git filters to strip outputs from historical notebooks.
+
+## One-click launch links
+
+Use [the launch directory](launch.md) for the original-platform button for each notebook (Colab or Kaggle). Existing embedded Colab badges now point to the organized paths. The buttons do not adapt Kaggle-specific data paths or secret helpers for Colab.

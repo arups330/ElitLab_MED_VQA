@@ -18,6 +18,18 @@ Research notebooks for medical image question answering on BrainFace, Neck, and 
 | Run an experiment on Kaggle or Colab | [Reproduction guide](docs/reproduction.md) |
 | Understand what the saved results do and do not show | [Experiment notes](docs/experiments.md) |
 
+## Open on the original platform
+
+| Workflow | Platform | Launch |
+|---|---|---|
+| Closed-question evaluation | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Fevaluation%2Fclosed%2Fevaluate_all_models.ipynb) |
+| Open-question evaluation | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Fevaluation%2Fopen%2Fevaluate_all_models.ipynb) |
+| BrainFace CoT training | Kaggle | [![Import into Kaggle](https://img.shields.io/badge/Kaggle-Import_notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/kernels/welcome?src=https%3A%2F%2Fraw.githubusercontent.com%2Farups330%2FElitLab_MED_VQA%2Fmain%2Fnotebooks%2Ftraining%2Fclosed%2Fbrainface_with_cot.ipynb) |
+| BrainFace training without CoT | Colab | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arups330/ElitLab_MED_VQA/blob/main/notebooks/training/closed/brainface_without_cot.ipynb) |
+| Abdomen open CoT training V2 | Colab | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arups330/ElitLab_MED_VQA/blob/main/notebooks/training/open/abdomen_with_cot_v2.ipynb) |
+
+[All notebook links, grouped by Colab and Kaggle](docs/launch.md). The platform follows the original notebook metadata. Kaggle exports do not include original published-run URLs; their buttons import the exact GitHub copy. Configure data, credentials, and GPU before running.
+
 ## Research scope
 
 - **Models:** Lingshu-7B, MedGemma-4B, Qwen2.5-VL-7B, Qwen3-VL-8B, and Llama-3.2-11B-Vision.
@@ -68,7 +80,7 @@ cd ElitLab_MED_VQA
 python scripts/validate_repository.py
 ```
 
-The checker uses the Python standard library. It verifies all migration hashes and saved output counts, notebook structure, local Markdown links, and common credential patterns. It does **not** train models or verify scientific scores. CI runs the same checks; it does not execute GPU workloads.
+The checker uses the Python standard library. It verifies reviewed notebook hashes, original code-cell fingerprints, and saved output counts, notebook structure, local Markdown links, and common credential patterns. It does **not** train models or verify scientific scores. CI runs the same checks; it does not execute GPU workloads.
 
 ## Repository layout
 
